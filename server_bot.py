@@ -1,23 +1,27 @@
 #!bot_venv/bin/python3
-import os
-import subprocess, locale, telebot, asyncio, shelve, re, logging, copy
-import my_envs, statistic
+import os, subprocess, locale, telebot, asyncio, shelve, re, logging, copy
+import statistic
 
 from telebot.async_telebot import AsyncTeleBot
 from telebot import types, util
 from zoneinfo import ZoneInfo
 from datetime import datetime, timedelta
+from dotenv import load_dotenv
 
+# for pythonanywhere.com hosting
 # from telebot import asyncio_helper
 # asyncio_helper.proxy = 'http://proxy.server:3128'
 
+
+load_dotenv()
+TELEGRAM_TOKEN = os.environ.get('TELEGRAM_TOKEN')
 locale.setlocale(locale.LC_ALL, 'ru_RU.UTF-8')
 MSK = ZoneInfo("Europe/Moscow")
 
 logger = telebot.logger
-telebot.logger.setLevel(logging.ERROR)  # Outputs debug messages to console.
+telebot.logger.setLevel(logging.ERROR)
 
-bot = AsyncTeleBot(my_envs.telegram_token)
+bot = AsyncTeleBot(TELEGRAM_TOKEN)
 db = shelve.open(os.path.join('db', 'storage'))
 
 

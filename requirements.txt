@@ -12,6 +12,7 @@ pandas==1.5.3
 plotly==5.13.1
 pyTelegramBotAPI==4.10.0
 python-dateutil==2.8.2
+python-dotenv==1.0.0
 pytz==2022.7.1
 requests==2.28.2
 six==1.16.0
