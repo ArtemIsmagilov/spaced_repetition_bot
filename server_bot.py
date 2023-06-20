@@ -528,4 +528,4 @@ async def handler_get_unknow_commands(message):
 
 
 if __name__ == '__main__':
-    asyncio.run(bot.polling())
+    asyncio.run(bot.polling(none_stop=True))
